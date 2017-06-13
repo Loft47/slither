@@ -75,7 +75,7 @@ class Slither
       def inspect
         "#<#{self.class} #{instance_variables.map{|iv| "#{iv}=>#{instance_variable_get(iv)}"}.join(', ')}>"
       end
-      
+
       def to_s(value)
         result = case @type
           when :date
@@ -97,7 +97,7 @@ class Slither
           when :money
             "%.2f" % value.to_f
           when :money_with_implied_decimal
-            "%d" % (value.to_f * 100)
+            "%d" % (value.to_f * 100).round
           else
             value.to_s
         end
